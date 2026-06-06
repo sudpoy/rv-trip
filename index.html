@@ -37,6 +37,11 @@
   .stat .num{font-family:var(--disp);font-weight:900;font-size:30px;color:var(--pine);line-height:1}
   .stat .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
 
+  .maproute{text-align:center;margin:30px 0 8px}
+  .map-btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.06em;text-decoration:none;color:#f4ecdb;background:var(--rust);border:1px solid var(--rust);border-radius:30px;padding:13px 26px;box-shadow:0 14px 30px -16px var(--shadow);transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+  .map-btn:hover{background:var(--pine);border-color:var(--pine);transform:translateY(-2px);box-shadow:0 18px 34px -16px var(--shadow)}
+  .map-btn .pin{font-size:16px}
+
   .notes{background:var(--pine);color:#f4ecdb;border-radius:16px;padding:24px 26px;margin:8px 0 44px;box-shadow:0 18px 40px -22px var(--shadow)}
   .notes h2{font-family:var(--serif);font-weight:700;font-size:17px;color:#fff;margin-bottom:14px;display:flex;align-items:center;gap:9px}
   .notes h2 .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(196,148,47,.25)}
@@ -110,6 +115,9 @@
       <div class="stat"><div class="num">~1,200</div><div class="lab">Miles 英里</div></div>
       <div class="stat"><div class="num">~27.5</div><div class="lab">Hrs 开车</div></div>
       <div class="stat"><div class="num">5</div><div class="lab">营地</div></div>
+    </div>
+    <div class="maproute">
+      <a class="map-btn" href="https://www.google.com/maps/dir/Sunnyvale%2C%20CA/Caspar%20Beach%20RV%20Park%2C%20Mendocino%2C%20CA/River%20Park%20RV%20Resort%2C%20Grants%20Pass%2C%20OR/Crater%20Lake%20National%20Park%2C%20OR/Crown%20Villa%20RV%20Resort%2C%20Bend%2C%20OR/Big%20Obsidian%20Flow%2C%20Newberry%20National%20Volcanic%20Monument%2C%20OR/Railroad%20Park%20Resort%2C%20Dunsmuir%2C%20CA/Bailey%20Cove%2C%20Shasta%20Lake%2C%20CA/RV%20Park%20at%20Rolling%20Hills%2C%20Corning%2C%20CA/Sunnyvale%2C%20CA/" target="_blank" rel="noopener"><span class="pin">📍</span>在 Google 地图中打开整条路线</a>
     </div>
   </header>
 
