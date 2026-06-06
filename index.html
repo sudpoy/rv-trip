@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北加州 ↔ 俄勒冈 房车 6 日环线</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Noto+Sans+SC:wght@300;400;500;700&family=Noto+Serif+SC:wght@500;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f4ecdb;--ink:#23332a;--ink-soft:#4b5b4f;--pine:#1f3b2e;--pine-deep:#162a20;
+    --rust:#bd4f2a;--gold:#c4942f;--line:#cdbf9f;--card:#fbf6ea;--shadow:rgba(31,59,46,.16);
+    --serif:"Noto Serif SC","Songti SC",serif;--sans:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+    --disp:"Fraunces",Georgia,serif;--mono:"JetBrains Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background-color:var(--paper);
+    background-image:radial-gradient(circle at 12% 8%, rgba(196,148,47,.10), transparent 42%),radial-gradient(circle at 88% 18%, rgba(189,79,42,.08), transparent 40%),radial-gradient(circle at 50% 100%, rgba(31,59,46,.10), transparent 55%);
+    line-height:1.65;-webkit-font-smoothing:antialiased;padding:0 18px 80px}
+  .wrap{max-width:860px;margin:0 auto}
+
+  .langbar{display:inline-flex;border:1px solid var(--line);border-radius:30px;overflow:hidden;
+    font-family:var(--mono);font-size:11px;letter-spacing:.12em;margin:22px auto 0;background:rgba(255,255,255,.45)}
+  .langbar a{padding:7px 16px;color:var(--ink-soft);text-decoration:none;font-weight:700}
+  .langbar a.active{background:var(--pine);color:#f4ecdb}
+
+  header{padding:26px 0 36px;text-align:center}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.34em;text-transform:uppercase;color:var(--rust);font-weight:700;margin:34px 0 18px}
+  h1{font-family:var(--serif);font-weight:900;font-size:clamp(34px,7vw,62px);line-height:1.04;color:var(--pine-deep);letter-spacing:-.01em}
+  h1 .en{display:block;font-family:var(--disp);font-style:italic;font-weight:500;font-size:clamp(15px,2.6vw,22px);color:var(--rust);letter-spacing:.01em;margin-top:14px}
+  .lede{max-width:560px;margin:22px auto 0;color:var(--ink-soft);font-size:15px;font-weight:300}
+  .stats{display:flex;justify-content:center;flex-wrap:wrap;margin:34px auto 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);max-width:640px}
+  .stat{flex:1;min-width:96px;padding:18px 8px;text-align:center;position:relative}
+  .stat + .stat::before{content:"";position:absolute;left:0;top:22%;height:56%;width:1px;background:var(--line)}
+  .stat .num{font-family:var(--disp);font-weight:900;font-size:30px;color:var(--pine);line-height:1}
+  .stat .lab{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:8px}
+
+  .notes{background:var(--pine);color:#f4ecdb;border-radius:16px;padding:24px 26px;margin:8px 0 44px;box-shadow:0 18px 40px -22px var(--shadow)}
+  .notes h2{font-family:var(--serif);font-weight:700;font-size:17px;color:#fff;margin-bottom:14px;display:flex;align-items:center;gap:9px}
+  .notes h2 .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 4px rgba(196,148,47,.25)}
+  .notes ul{list-style:none;display:grid;gap:11px}
+  .notes li{display:flex;gap:12px;font-size:14px;color:#e7ddc8;font-weight:300}
+  .notes li b{color:#fff;font-weight:500}
+  .notes .mk{color:var(--gold);font-weight:700;flex-shrink:0}
+
+  .day{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:30px 28px 26px;margin-bottom:26px;box-shadow:0 20px 44px -30px var(--shadow);position:relative;overflow:hidden;opacity:0;transform:translateY(16px);animation:rise .7s cubic-bezier(.2,.7,.2,1) forwards}
+  @keyframes rise{to{opacity:1;transform:none}}
+  .day:nth-of-type(1){animation-delay:.05s}.day:nth-of-type(2){animation-delay:.12s}.day:nth-of-type(3){animation-delay:.19s}.day:nth-of-type(4){animation-delay:.26s}.day:nth-of-type(5){animation-delay:.33s}.day:nth-of-type(6){animation-delay:.40s}
+  .day::before{content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:linear-gradient(var(--rust),var(--gold))}
+  .dhead{display:flex;align-items:flex-start;gap:18px;margin-bottom:6px}
+  .badge{flex-shrink:0;width:58px;height:58px;border-radius:14px;background:var(--pine);color:#f4ecdb;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+  .badge .d{font-family:var(--mono);font-size:9px;letter-spacing:.2em;opacity:.7;margin-bottom:3px}
+  .badge .n{font-family:var(--disp);font-weight:900;font-size:26px}
+  .dtitle{flex:1}
+  .dtitle h3{font-family:var(--serif);font-weight:700;font-size:20px;color:var(--pine-deep);line-height:1.25}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:9px}
+  .chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;padding:4px 10px;border-radius:20px;border:1px solid var(--line);color:var(--ink-soft);background:rgba(255,255,255,.5);white-space:nowrap}
+  .chip.drive{color:var(--rust);border-color:rgba(189,79,42,.35)}
+  .chip.act{color:var(--pine);border-color:rgba(31,59,46,.3)}
+  .chip.long{color:#fff;background:var(--rust);border-color:var(--rust)}
+  .route{font-size:12.5px;color:var(--ink-soft);margin:16px 0 4px;padding:11px 14px;background:rgba(196,148,47,.10);border-radius:10px;font-weight:400}
+  .route b{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--rust);display:block;margin-bottom:5px}
+  .tl{margin-top:20px}
+  .row{display:grid;grid-template-columns:62px 22px 1fr;align-items:start}
+  .time{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--pine);padding-top:1px;white-space:nowrap}
+  .rail{position:relative;display:flex;justify-content:center}
+  .rail::before{content:"";position:absolute;top:7px;bottom:-7px;width:2px;background:var(--line)}
+  .row:last-child .rail::before{display:none}
+  .rail .knob{width:11px;height:11px;border-radius:50%;background:var(--card);border:2.5px solid var(--rust);margin-top:4px;z-index:1}
+  .rail .knob.stay{border-color:var(--pine);background:var(--pine)}
+  .body{padding:0 0 20px 10px}
+  .act-t{font-weight:500;font-size:14.5px;color:var(--ink)}
+  .act-t .dur{font-family:var(--mono);font-size:10.5px;color:var(--rust);font-weight:700;margin-left:6px}
+  .note{font-size:12.5px;color:var(--ink-soft);font-weight:300;margin-top:3px}
+  .note.key{color:var(--pine);font-weight:400}
+  .note.key::before{content:"▸ ";color:var(--gold);font-weight:700}
+  .note.warn{color:var(--rust)}
+  .camp{margin-top:8px;padding:13px 16px;border-radius:11px;background:var(--pine);color:#f4ecdb;display:flex;align-items:center;gap:11px;font-size:13.5px}
+  .camp .ic{font-size:17px}
+  .camp b{color:#fff;font-weight:500}.camp span{color:#cdbf9f;font-weight:300}
+
+  .check{background:var(--card);border:1px dashed var(--rust);border-radius:18px;padding:30px 28px;margin-top:42px}
+  .check h2{font-family:var(--serif);font-weight:700;font-size:20px;color:var(--pine-deep);margin-bottom:6px}
+  .check .sub{font-size:13px;color:var(--ink-soft);font-weight:300;margin-bottom:20px}
+  .check ul{list-style:none;display:grid;gap:13px}
+  .check li{display:flex;gap:13px;font-size:14px;align-items:flex-start}
+  .check .box{flex-shrink:0;width:18px;height:18px;border:2px solid var(--pine);border-radius:5px;margin-top:2px}
+  .check li b{color:var(--pine-deep);font-weight:700}.check li span{color:var(--ink-soft);font-weight:300}
+  footer{text-align:center;margin-top:48px;color:var(--ink-soft);font-size:12px;font-weight:300}
+  footer .en{font-family:var(--disp);font-style:italic;font-size:15px;color:var(--rust);display:block;margin-bottom:8px}
+
+  @media (max-width:560px){.day{padding:24px 18px 20px}.row{grid-template-columns:52px 20px 1fr}.badge{width:50px;height:50px}.stat{min-width:80px}}
+  @media print{body{background:#fff;padding:0}.langbar{display:none}.day,.notes,.check{box-shadow:none;break-inside:avoid;animation:none;opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="langbar"><a class="active">中文</a><a href="en.html">EN</a></div>
+    <div class="kicker">Father &amp; Sons · RV Expedition</div>
+    <h1>北加州 ↔ 俄勒冈<br>房车 6 日环线
+      <span class="en">Wild Coast, Crater Lakes &amp; Volcanic Glass</span>
+    </h1>
+    <p class="lede">从 Sunnyvale 出发,沿最野的海岸线北上,穿越火山口湖与中俄勒冈火山地带,再沿 5 号公路一路南下回家。</p>
+    <div class="stats">
+      <div class="stat"><div class="num">6</div><div class="lab">Days 天</div></div>
+      <div class="stat"><div class="num">~1,200</div><div class="lab">Miles 英里</div></div>
+      <div class="stat"><div class="num">~27.5</div><div class="lab">Hrs 开车</div></div>
+      <div class="stat"><div class="num">5</div><div class="lab">营地</div></div>
+    </div>
+  </header>
+
+  <div class="notes">
+    <h2><span class="dot"></span>三条关键路线提示</h2>
+    <ul>
+      <li><span class="mk">▸</span><span><b>Day 2：</b>离开 Fort Bragg 走 <b>Hwy 20 经 Willits</b> 上 101,不走 1 号去 Leggett(禁大房车)。早 6:30 出发。</span></li>
+      <li><span class="mk">▸</span><span><b>Day 3：</b>Crater Lake 从 <b>南侧 62 号进出</b>,再上 97 北上——6 月初环湖路/北门多半没开。</span></li>
+      <li><span class="mk">▸</span><span><b>Day 4：</b>Lava Butte 接驳车 6 月初未开、>22ft 大房车禁上,<b>"登顶"由火山口里的黑曜石山兑现</b>。</span></li>
+    </ul>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><div class="badge"><span class="d">DAY</span><span class="n">1</span></div>
+      <div class="dtitle"><h3>黄金海岸线与悬崖野餐</h3>
+        <div class="chips"><span class="chip drive">🚐 开车 ~4.5h</span><span class="chip act">🎯 活动 ~3h</span></div></div></div>
+    <div class="route"><b>Route 行车路线</b>Sunnyvale → 101 北上 → 128 西向 → 1 号精华段 → Fort Bragg</div>
+    <div class="tl">
+      <div class="row"><div class="time">8:00</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Sunnyvale 出发</div><div class="note">128/1 号末段较绕,留出 RV 慢速余量</div></div></div>
+      <div class="row"><div class="time">12:00</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Mendocino Headlands 悬崖野餐<span class="dur">1h</span></div><div class="note">悬崖边停车,房车尾门面朝太平洋开吃</div></div></div>
+      <div class="row"><div class="time">13:25</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Glass Beach 翻石头 · 潮汐池<span class="dur">~1.75h</span></div><div class="note warn">玻璃只看别捡——属州立公园,带走违规</div></div></div>
+      <div class="row"><div class="time">15:30</div><div class="rail"><div class="knob stay"></div></div><div class="body"><div class="act-t">抵达营地</div></div></div>
+    </div>
+    <div class="camp"><span class="ic">⛺</span><span><b>今日驻扎 · Caspar Beach RV Park</b> &nbsp;直连沙滩 · Full Hookup</span></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><div class="badge"><span class="d">DAY</span><span class="n">2</span></div>
+      <div class="dtitle"><h3>捕蟹陷阱、绝壁寻宝与峡谷淘金</h3>
+        <div class="chips"><span class="chip drive">🚐 开车 ~7h</span><span class="chip act">🎯 活动 ~5h</span><span class="chip long">全程最长 · 早起</span></div></div></div>
+    <div class="route"><b>Route 行车路线</b>Caspar → <strong>Hwy 20 → Willits</strong> → 101 北上 → Trinidad → Crescent City → 199 峡谷 → Grants Pass</div>
+    <div class="tl">
+      <div class="row"><div class="time">6:30</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">出发(必须早)<span class="dur">~3.75h</span></div><div class="note key">走 Hwy 20 经 Willits 上 101,不碰禁房车的 Leggett 段</div></div></div>
+      <div class="row"><div class="time">10:15</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Trinidad Pier 捕岩蟹 + 煮午餐<span class="dur">~2.5h</span></div><div class="note">租网笼挂鸡腿抓大红岩蟹 · 无封渔期、栈桥免执照</div></div></div>
+      <div class="row"><div class="time">12:55</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Sue-meg State Park 找玛瑙<span class="dur">~1.5h</span></div><div class="note">下崖在彩石堆找半透明玛瑙 · 尽量卡退潮</div></div></div>
+      <div class="row"><div class="time">15:10</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">199 旁淘金<span class="dur">~45m</span></div><div class="note">Smith River 沿线快速淘金 · <b>弹性项,赶就跳过</b></div></div></div>
+      <div class="row"><div class="time">17:50</div><div class="rail"><div class="knob stay"></div></div><div class="body"><div class="act-t">抵达营地 · 打火棒生火烤棉花糖</div></div></div>
+    </div>
+    <div class="camp"><span class="ic">⛺</span><span><b>今日驻扎 · River Park RV Resort（Grants Pass, OR）</b> &nbsp;罗格河畔</span></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><div class="badge"><span class="d">DAY</span><span class="n">3</span></div>
+      <div class="dtitle"><h3>狂野快艇甩尾与蓝色圣湖雪战</h3>
+        <div class="chips"><span class="chip drive">🚐 开车 ~4.5h</span><span class="chip act">🎯 活动 ~4h</span></div></div></div>
+    <div class="route"><b>Route 行车路线</b>Grants Pass → 62 号 → Crater Lake(Rim Village)→ <strong>原路退 62 → 97 北上</strong> → Bend</div>
+    <div class="tl">
+      <div class="row"><div class="time">9:00</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Hellgate 喷气快艇<span class="dur">2h</span></div><div class="note">选 2 小时观光甩尾团,别选含餐长团</div></div></div>
+      <div class="row"><div class="time">13:00</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Crater Lake — Rim Village 看湖 + 雪战<span class="dur">~1.75h</span></div><div class="note key">西侧 Rim Village 6 月初开放,残雪墙够打雪仗;环湖路开不了不强求</div></div></div>
+      <div class="row"><div class="time">14:45</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">南侧退出 → 97 北上到 Bend<span class="dur">~2.5h</span></div></div></div>
+      <div class="row"><div class="time">17:15</div><div class="rail"><div class="knob stay"></div></div><div class="body"><div class="act-t">抵达营地</div></div></div>
+    </div>
+    <div class="camp"><span class="ic">⛺</span><span><b>今日驻扎 · Crown Villa / Sun Outdoors Bend</b> &nbsp;镇上豪华房车村</span></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><div class="badge"><span class="d">DAY</span><span class="n">4</span></div>
+      <div class="dtitle"><h3>火山口核心放电与重装火车营地</h3>
+        <div class="chips"><span class="chip drive">🚐 开车 ~5h</span><span class="chip act">🎯 活动 ~4h</span></div></div></div>
+    <div class="route"><b>Route 行车路线</b>Bend → 97 南 → Lava Lands → Newberry 火山口(Paulina Falls · Big Obsidian · Paulina Lake)→ 97 南下 → Dunsmuir</div>
+    <div class="tl">
+      <div class="row"><div class="time">9:00</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Lava Lands / Trail of Molten Land<span class="dur">~1.25h</span></div><div class="note key">登顶量力而行:6 月初无接驳、>22ft 禁上;走熔岩地看景就很值,真要上顶靠拖小车或步行</div></div></div>
+      <div class="row"><div class="time">11:00</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Paulina Falls 双子瀑布<span class="dur">~30m</span></div><div class="note">停车场走约 100 米即到</div></div></div>
+      <div class="row"><div class="time">11:30</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Big Obsidian Flow 爬黑曜石山<span class="dur">~1.25h</span></div><div class="note key">今日真正高潮 · 满地闪光黑水晶 · 海拔高带外套,鞋防滑</div></div></div>
+      <div class="row"><div class="time">12:45</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Paulina Lake 湖边房车午餐<span class="dur">~1.25h</span></div><div class="note">火山口内高山湖 · 打水漂找石头 · 约 14:00 南下</div></div></div>
+      <div class="row"><div class="time">17:30</div><div class="rail"><div class="knob stay"></div></div><div class="body"><div class="act-t">抵达营地</div><div class="note">从火山口到 Dunsmuir 约 3.5h,太阳还高,娃有充足白班</div></div></div>
+    </div>
+    <div class="camp"><span class="ic">🚂</span><span><b>今日驻扎 · Railroad Park Resort（现名 Jubilee Railroad，Dunsmuir）</b> &nbsp;退役蒸汽机车营地</span></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><div class="badge"><span class="d">DAY</span><span class="n">5</span></div>
+      <div class="dtitle"><h3>峡谷秘境皮划艇与战斧牛排大餐</h3>
+        <div class="chips"><span class="chip drive">🚐 开车 ~2h</span><span class="chip act">🎯 活动 ~2h + 营地休整</span></div></div></div>
+    <div class="route"><b>Route 行车路线</b>Dunsmuir → 5 号南下 → Shasta Lake(Bailey Cove)→ Corning</div>
+    <div class="tl">
+      <div class="row"><div class="time">9:00</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Dunsmuir 出发<span class="dur">~40m</span></div></div></div>
+      <div class="row"><div class="time">10:00</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Bailey Cove 自带 Kayak 下水<span class="dur">~2h</span></div><div class="note warn">穿救生衣 · 6 月初水凉 · 出发前查湖位(低水位坡道可能不好用)</div></div></div>
+      <div class="row"><div class="time">13:30</div><div class="rail"><div class="knob stay"></div></div><div class="body"><div class="act-t">抵营 · 街机房 + 烤 Costco 战斧牛排</div></div></div>
+    </div>
+    <div class="camp"><span class="ic">⛺</span><span><b>今日驻扎 · RV Park at Rolling Hills（Corning）</b> &nbsp;车位大 · 室内街机房</span></div>
+  </div>
+
+  <div class="day">
+    <div class="dhead"><div class="badge"><span class="d">DAY</span><span class="n">6</span></div>
+      <div class="dtitle"><h3>水上忍者大冲关、恶搞怪味豆与归巢</h3>
+        <div class="chips"><span class="chip drive">🚐 开车 ~4.5h</span><span class="chip act">🎯 活动 ~4.5h</span></div></div></div>
+    <div class="route"><b>Route 行车路线</b>Corning → 5 号 → Sacramento(Wake Island)→ Fairfield(Jelly Belly)→ 80/680 → Sunnyvale</div>
+    <div class="tl">
+      <div class="row"><div class="time">9:30</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Corning 出发<span class="dur">~1.75h</span></div></div></div>
+      <div class="row"><div class="time">11:15</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Wake Island 水上充气闯关<span class="dur">~3h</span></div><div class="note">巨型滑梯 · 悬空独木桥 · 彻底放电(周中 11:00 开)</div></div></div>
+      <div class="row"><div class="time">15:05</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">Jelly Belly 工厂 + BeanBoozled<span class="dur">~1.5h</span></div><div class="note">自助参观 · 买几盒怪味豆回程盲抽</div></div></div>
+      <div class="row"><div class="time">16:30</div><div class="rail"><div class="knob"></div></div><div class="body"><div class="act-t">80/680 回 Sunnyvale<span class="dur">~2h</span></div><div class="note warn">16:30 正撞湾区晚高峰边缘 · 可缩短水上公园早走,或多逛 6 点后再走</div></div></div>
+      <div class="row"><div class="time">18:30</div><div class="rail"><div class="knob stay"></div></div><div class="body"><div class="act-t">到家还车 🏡</div></div></div>
+    </div>
+  </div>
+
+  <div class="check">
+    <h2>出发前清单</h2>
+    <p class="sub">出发前把下面这些确认好、订好即可。</p>
+    <ul>
+      <li><span class="box"></span><span><b>确认出行日期</b> — 决定 Lava Butte 能否上顶,以及 Crater Lake 开放到什么程度</span></li>
+      <li><span class="box"></span><span><b>查 Crater Lake 路况</b> — 出发前看 nps.gov/crla 的 conditions 页</span></li>
+      <li><span class="box"></span><span><b>Day 2 潮汐表</b> — 让 Sue-meg 找玛瑙卡在退潮前后</span></li>
+      <li><span class="box"></span><span><b>Newberry 火山口费用</b> — $5/车,或备一张 Northwest Forest Pass</span></li>
+      <li><span class="box"></span><span><b>Lava Butte 上顶</b>(如拖小车且在 6 月中前)— 非旺季在游客站领免费限时证;>22ft 车禁上</span></li>
+      <li><span class="box"></span><span><b>提前订营地</b> — 尤其 Crown Villa/Sun Outdoors Bend、Caspar Beach</span></li>
+      <li><span class="box"></span><span><b>装备</b> — 打火棒、塑料淘金盘、Kayak + 救生衣、保暖外层、防滑鞋</span></li>
+    </ul>
+  </div>
+
+  <footer>
+    <span class="en">Drive safe. Catch crabs. Climb glass.</span>
+    北加州 ↔ 俄勒冈 房车 6 日环线 · 全程约 1,200 英里 · 时间为房车节奏估算,请留 30–60 分钟缓冲
+  </footer>
+
+</div>
+</body>
+</html>
